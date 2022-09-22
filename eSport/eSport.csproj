@@ -74,6 +74,9 @@
     <Content Include="player-details.aspx" />
     <Content Include="players.aspx" />
     <Content Include="soldAndunsold-players.aspx" />
+    <Content Include="g\admin-style.css" />
+    <Content Include="g\playerStyle.css" />
+    <Content Include="g\style.css" />
     <Content Include="team-details.aspx" />
     <Content Include="team-owner-dashboard.aspx" />
     <Content Include="teams.aspx" />
