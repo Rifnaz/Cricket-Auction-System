@@ -1,34 +1,36 @@
+﻿
 
-
-.navbar-brand{
+.navbar-brand {
     margin-left: 55px;
 }
-.abc{
+
+.abc {
     background-image: url("../assets/crick.jpg");
     background-size: cover;
     background-color: rgb(66, 62, 62);
 }
 
 
-.col{
+.col {
     width: 50%;
 }
-.heading{
+
+.heading {
     padding: 100px 150px;
 }
 
-.img{
+.img {
     width: 70%;
     padding-top: 100px;
 }
 
-h1{
+h1 {
     font-size: 75px;
 }
 
 
 
-.btn2{
+.btn2 {
     background-color: rgb(39, 37, 37);
     border-radius: 20px;
     color: white;
@@ -37,10 +39,9 @@ h1{
     width: 150px;
 }
 
-.btn2:hover{
-    background-color: white;
-    color: black;
-    font: bold;
-    border-color: black;
-}
-
+    .btn2:hover {
+        background-color: white;
+        color: black;
+        font: bold;
+        border-color: black;
+    }
