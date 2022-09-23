@@ -27,6 +27,12 @@
         }
     </style>
 
+     <script>
+        function setPlayerID() {
+            alert(200);
+        }
+     </script>
+
 </head>
 <body class="">
   
@@ -58,11 +64,11 @@
         <div class="title">
             <span class="">PLAYERS</span>
         </div>
-            <asp:DataList ID="dtl_player" runat="server" RepeatColumns="4" CellPadding="0" CellSpacing="0"> 
+            <asp:DataList ID="dtl_player" runat="server" RepeatColumns="4" CellPadding="0" CellSpacing="0" OnSelectedIndexChanged="dtl_player_SelectedIndexChanged"> 
                 <ItemTemplate>
         <div class="row">
             <div class="">
-                <a href="./player-details.html">
+                <a>
                     <div class="">
                         <div class="row text-center">
                             <div class="col">

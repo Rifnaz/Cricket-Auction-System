@@ -12,7 +12,8 @@ namespace eSport
 {
     public partial class players : System.Web.UI.Page
     {
-        SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-VQFEGPS;Initial Catalog=eSport;Integrated Security=True");
+        SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -49,5 +50,16 @@ namespace eSport
             dtl_player.DataBind();
 
         }
+        public void showPlayerDetail(int id)
+        {
+            Console.Write(id);
+        }
+
+        protected void dtl_player_SelectedIndexChanged(object sender, EventArgs e)
+        {
+                        Response.Redirect("admin.aspx");
+
+        }
     }
+
 }

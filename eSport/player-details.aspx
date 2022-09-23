@@ -26,6 +26,7 @@
     }
 </style>
 
+
 <body class="blur">
     <div class="container-fluid">
         
@@ -48,36 +49,40 @@
                   </div>
                 </div>
               </nav>
-        <div class="col">
+            <asp:DataList ID="DataList1" runat="server">
+                <ItemTemplate>
+                <div class="col">
            
-            <div class="FadeAway">
-                <img id="hero-img" src="./assets/virat.jpg" alt="" srcset="">
-            </div>
-        </div>
-        <div class="col">
-            <div class="dis-name">
-                Mahendra Singh Dhoni
-                <div class="row attributes">
-                    <div class="col-12">Right Hand Batman</div>
-                    <div class="col-12">Right Hand Fast</div>
+                    <div class="FadeAway">
+                        <img id="hero-img" src="./assets/virat.jpg" alt="" srcset="">
+                    </div>
                 </div>
-            </div>
-            <table>
-                <tr>
-                    <td>Matches</td>
-                    <td>Runs</td>
-                    <td>Wickets</td>
+                <div class="col">
+                    <div class="dis-name">
+                        Mahendra Singh Dhoni
+                        <div class="row attributes">
+                            <div class="col-12">Right Hand Batman</div>
+                            <div class="col-12">Right Hand Fast</div>
+                        </div>
+                    </div>
+                    <table>
+                        <tr>
+                            <td>Matches</td>
+                            <td>Runs</td>
+                            <td>Wickets</td>
 
-                </tr>
-                <tr>
-                    <td class="result">35</td>
-                    <td class="result">2587</td>
-                    <td class="result">58</td>
-                </tr>
-            </table>
-            <input class="priceInput" placeholder="Rs.0000" type="number">
-            <button class="btn btn-warning">Set Base Price</button>
-        </div>
+                        </tr>
+                        <tr>
+                            <td class="result">35</td>
+                            <td class="result">2587</td>
+                            <td class="result">58</td>
+                        </tr>
+                    </table>
+                    <input class="priceInput" placeholder="Rs.0000" type="number">
+                    <button class="btn btn-warning">Set Base Price</button>
+                </div>
+                </ItemTemplate>
+            </asp:DataList>
         </div>
     </div>
 </body>
