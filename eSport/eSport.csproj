@@ -68,6 +68,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="admin.aspx" />
+    <Content Include="App_Data\dbEsport.mdf" />
+    <Content Include="App_Data\dbEsport_log.ldf">
+      <DependentUpon>dbEsport.mdf</DependentUpon>
+    </Content>
     <Content Include="home.aspx" />
     <Content Include="login.aspx" />
     <Content Include="player-dashboard.aspx" />
@@ -164,6 +168,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
