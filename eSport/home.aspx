@@ -27,12 +27,20 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="d-flex" id="navbarTogglerDemo02">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <a class="nav-link active text-light" aria-current="page" href="#">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-light" href="#">Login </a>
+                <asp:DropDownList class="nav-item dropdown" ID="DropDownList1" runat="server">
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <asp:ListItem class="dropdown-item" href="#">Login</asp:ListItem>
+                    <asp:ListItem>admin</asp:ListItem>
+                    <asp:ListItem>player</asp:ListItem>
+                    <asp:ListItem>owner</asp:ListItem>
+        
+                 </div>
+                  </asp:DropDownList>
               </li>
             </ul>
           </div>
@@ -40,7 +48,7 @@
       </nav>
       <div class="row text-light">
         <div class="col heading">
-            <h1>Champions will<br>
+            <h1>Champions will<br>  
               play with <br>
                  greate matches.</h1>
             <p>Tournament of cricket encounters.</p>

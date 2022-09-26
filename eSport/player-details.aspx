@@ -24,12 +24,22 @@
     .FadeAway{
         margin-top: -100px;
     }
+
+    .heroPic{
+        margin-left:-70px;
+    }
+    .blur{
+        margin-top: -40px;
+        margin-left:-30px;
+    }
 </style>
 
 
-<body class="blur">
-    <div class="container-fluid">
         
+            <asp:DataList ID="dtl_playerDetails" runat="server">
+                <ItemTemplate>
+                    <body class="blur">
+    <div class="container-fluid">
         <div class="row">
             <nav class="navbar navbar-expand-lg">
                 <div class="container-fluid">
@@ -49,17 +59,15 @@
                   </div>
                 </div>
               </nav>
-            <asp:DataList ID="DataList1" runat="server">
-                <ItemTemplate>
-                <div class="col">
+                <div class="col heroPic">
            
                     <div class="FadeAway">
                         <img id="hero-img" src="./assets/virat.jpg" alt="" srcset="">
                     </div>
                 </div>
-                <div class="col">
+                <div class="col" style="text-align:left;">
                     <div class="dis-name">
-                        Mahendra Singh Dhoni
+                        <%#Eval("name") %>
                         <div class="row attributes">
                             <div class="col-12">Right Hand Batman</div>
                             <div class="col-12">Right Hand Fast</div>
@@ -78,14 +86,16 @@
                             <td class="result">58</td>
                         </tr>
                     </table>
-                    <input class="priceInput" placeholder="Rs.0000" type="number">
+                    <div style="color:dimgrey; margin-left:18px" class="result">544512 <span style="font-size:18px;">LKR</span></div>
+                     
+                    <input  class="priceInput" placeholder="Rs.0000" type="number">
                     <button class="btn btn-warning">Set Base Price</button>
                 </div>
+                </div>
+            </div>
+        </body>
                 </ItemTemplate>
             </asp:DataList>
-        </div>
-    </div>
-</body>
 </html>
     </form>
 </body>
