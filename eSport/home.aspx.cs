@@ -13,5 +13,10 @@ namespace eSport
         {
 
         }
+
+        protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Response.Redirect(DropDownList1.SelectedValue, true);
+        }
     }
 }

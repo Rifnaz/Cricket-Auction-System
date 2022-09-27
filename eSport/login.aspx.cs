@@ -13,6 +13,8 @@ namespace eSport
     public partial class login : System.Web.UI.Page
     {
         SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+        string userType;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (con.State == ConnectionState.Open)
@@ -52,6 +54,7 @@ namespace eSport
             {
                 try
                 {
+                    userType = Request.QueryString["id"].ToString();
                     //open and close connection
                     //Check if entered username and password are correct
 
@@ -62,22 +65,65 @@ namespace eSport
                     con.Open();
                     SqlCommand cmd = con.CreateCommand();
                     cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = "select * from admin where email='" + username.Text + "'and password='" + password.Text + "'";
-                    cmd.ExecuteNonQuery();
-
-                    //sucess message
-                    if (cmd.ExecuteReader().Read())
+                    if(userType== "admin")
                     {
-                        Response.Redirect("admin.aspx");
+                        cmd.CommandText = "select * from admin where email='" + username.Text + "'and password='" + password.Text + "'";
+                        cmd.ExecuteNonQuery();
 
-                        //move to dashboard
+                        //sucess message
+                        if (cmd.ExecuteReader().Read())
+                        {
+                            Response.Redirect("admin.aspx");
+
+                            //move to dashboard
+                        }
+                        //error message
+                        else
+                        {
+                            errLogin.Visible = true;
+                        }
+                        con.Close();
                     }
-                    //error message
-                    else
+                    if (userType == "player")
                     {
-                        errLogin.Visible= true;
+                        cmd.CommandText = "select * from player where Email='" + username.Text + "'and Password='" + password.Text + "'";
+                        cmd.ExecuteNonQuery();
+
+                        //sucess message
+                        if (cmd.ExecuteReader().Read())
+                        {
+                            Response.Redirect("player-dashboard.aspx");
+
+                            //move to dashboard
+                        }
+                        //error message
+                        else
+                        {
+                            errLogin.Visible = true;
+                        }
+                        con.Close();
                     }
-                    con.Close();
+
+                    if (userType == "owner")
+                    {
+                        cmd.CommandText = "select * from owner where Email='" + username.Text + "'and Password='" + password.Text + "'";
+                        cmd.ExecuteNonQuery();
+
+                        //sucess message
+                        if (cmd.ExecuteReader().Read())
+                        {
+                            Response.Redirect("team-owner-dashboard.aspx");
+
+                            //move to dashboard
+                        }
+                        //error message
+                        else
+                        {
+                            errLogin.Visible = true;
+                        }
+                        con.Close();
+                    }
+
                 }
                 catch (Exception ex)
                 {

@@ -18,6 +18,16 @@
     <link rel="stylesheet" href="./styles/style.css">
 
     <title>Home Page</title>
+    <style>
+        .dropdownL{
+            background-color:transparent;
+            color:white;
+            border:none;
+        }
+        .dropdown-item{
+            color:black;
+        }
+    </style>
 </head>
 <body class="abc">
     <nav class="navbar navbar-expand-lg">
@@ -31,16 +41,16 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <a class="nav-link active text-light" aria-current="page" href="#">Home</a>
               </li>
-              <li class="nav-item">
-                <asp:DropDownList class="nav-item dropdown" ID="DropDownList1" runat="server">
-                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <asp:ListItem class="dropdown-item" href="#">Login</asp:ListItem>
-                    <asp:ListItem>admin</asp:ListItem>
-                    <asp:ListItem>player</asp:ListItem>
-                    <asp:ListItem>owner</asp:ListItem>
-        
-                 </div>
+              <li class="nav-item dropdownlist">
+                <a class="nav-link active text-light" aria-current="page" href="#">
+                <asp:DropDownList class="nav-item dropdownL" ID="DropDownList1" runat="server" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" AutoPostBack="true">
+                    
+                    <asp:ListItem Selected="true" class="dropdown-item" Text="Login">Login</asp:ListItem>
+                    <asp:ListItem class="dropdown-item" Value="login.aspx?id=admin">Admin</asp:ListItem>
+                    <asp:ListItem class="dropdown-item" Value="login.aspx?id=player">Player</asp:ListItem>
+                    <asp:ListItem class="dropdown-item" Value="login.aspx?id=owner">Owner</asp:ListItem>
                   </asp:DropDownList>
+                    </a>
               </li>
             </ul>
           </div>
