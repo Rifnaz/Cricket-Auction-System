@@ -85,5 +85,22 @@ namespace eSport
                 }
             }
         }
+
+        protected void btnDecline_Click(object sender, EventArgs e)
+        {
+            if (con.State == ConnectionState.Open)
+            {
+                con.Close();
+            }
+            con.Open();
+
+            // delete command
+            SqlCommand cmd = con.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "delete from player where PlayerID ='" + id + "' ";
+            cmd.ExecuteNonQuery();
+
+            Response.Redirect("pending-player.aspx");
+        }
     }
 }

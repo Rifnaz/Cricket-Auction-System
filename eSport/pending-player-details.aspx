@@ -101,6 +101,8 @@
             <div class="priceDiv">
                     <asp:TextBox ID="txt_price" class="priceInput" runat="server"></asp:TextBox>
                     <asp:Button ID="btnSetPrice"  class="btn btn-warning" runat="server" Text="Set Base Price" OnClick="btnSetPrice_Click" />
+                    <asp:Button ID="btnDecline"  class="btn btn-danger" runat="server" Text="Decline" OnClick="btnDecline_Click" />
+
             </div>
 </html>
     </form>
