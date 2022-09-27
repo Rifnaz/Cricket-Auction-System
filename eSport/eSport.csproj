@@ -74,6 +74,8 @@
     </Content>
     <Content Include="home.aspx" />
     <Content Include="login.aspx" />
+    <Content Include="pending-player-details.aspx" />
+    <Content Include="pending-player.aspx" />
     <Content Include="player-dashboard.aspx" />
     <Content Include="player-details.aspx" />
     <Content Include="players.aspx" />
@@ -107,6 +109,20 @@
     </Compile>
     <Compile Include="login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pending-player-details.aspx.cs">
+      <DependentUpon>pending-player-details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pending-player-details.aspx.designer.cs">
+      <DependentUpon>pending-player-details.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pending-player.aspx.cs">
+      <DependentUpon>pending-player.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pending-player.aspx.designer.cs">
+      <DependentUpon>pending-player.aspx</DependentUpon>
     </Compile>
     <Compile Include="player-dashboard.aspx.cs">
       <DependentUpon>player-dashboard.aspx</DependentUpon>

@@ -86,7 +86,7 @@ namespace eSport
                     }
                     if (userType == "player")
                     {
-                        cmd.CommandText = "select * from player where Email='" + username.Text + "'and Password='" + password.Text + "'";
+                        cmd.CommandText = "select * from player where Email='" + username.Text + "'and Password='" + password.Text + "'and Status=1";
                         cmd.ExecuteNonQuery();
 
                         //sucess message

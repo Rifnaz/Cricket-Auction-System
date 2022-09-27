@@ -10,13 +10,13 @@ using System.Configuration;
 
 namespace eSport
 {
-    public partial class players : System.Web.UI.Page
+    public partial class pending_player : System.Web.UI.Page
     {
         SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
 
-
         protected void Page_Load(object sender, EventArgs e)
         {
+
             if (con.State == ConnectionState.Open)
             {
                 con.Close();
@@ -40,7 +40,7 @@ namespace eSport
 
             SqlCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "select * from player where Status=1";
+            cmd.CommandText = "select * from player where Status=0";
             cmd.ExecuteNonQuery();
 
             DataSet dt = new DataSet();
@@ -50,7 +50,7 @@ namespace eSport
             dtl_player.DataBind();
 
         }
- 
+
 
         protected void dtl_player_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -58,5 +58,4 @@ namespace eSport
 
         }
     }
-
 }

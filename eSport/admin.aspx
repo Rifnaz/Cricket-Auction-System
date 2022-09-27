@@ -88,7 +88,7 @@
                                 <a class="nav-link text-dark" href="#">Auction</a>
                               </li>
                               <li class="nav-item">
-                                <a class="nav-link text-dark" href="#">Players</a>
+                                <a class="nav-link text-dark" href="players.aspx">Players</a>
                               </li>
                               <li class="nav-item">
                                 <a class="nav-link text-dark" href="#">Logout</a>
@@ -102,10 +102,12 @@
                     <a  class="moveToBlack" href="./players.html">
                     <div class="row">
                         <div class="col second-row-right-div-one">
+                        <a href="pending-player.aspx">
                             Pending Players <span class="counts" style="color:rgb(118, 189, 118);">10</span> <br>
                             <span class="count-title">
                                 Accept or Decline All Your Pending Players Here
                             </span>
+                        </a>
                         </div>
                         <div class="col second-row-right-div-two">
                             <img class="fit" src="./assets/virat-kholi.png" alt="">

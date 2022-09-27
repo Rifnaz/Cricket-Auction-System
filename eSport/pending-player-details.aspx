@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="player-details.aspx.cs" Inherits="eSport.player_details" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pending-player-details.aspx.cs" Inherits="eSport.pending_player_details" %>
 
 <!DOCTYPE html>
 
@@ -25,6 +25,11 @@
         margin-top: -100px;
     }
 
+    .priceDiv{
+        margin-top:-180px;
+        margin-left:650px;
+    }
+
     .heroPic{
         margin-left:-70px;
     }
@@ -35,7 +40,6 @@
 </style>
 
 
-        
         
             <asp:DataList ID="dtl_playerDetails" runat="server">
                 <ItemTemplate>
@@ -87,13 +91,17 @@
                             <td class="result"><%#Eval("Wickets") %></td>
                         </tr>
                     </table>
-                    <div style="color:dimgrey; margin-left:18px" class="result"> <%#Eval("BasePrice") %> <span style="font-size:18px;">LKR</span></div>
+
                 </div>
                 </div>
             </div>
         </body>
                 </ItemTemplate>
             </asp:DataList>
+            <div class="priceDiv">
+                    <asp:TextBox ID="txt_price" class="priceInput" runat="server"></asp:TextBox>
+                    <asp:Button ID="btnSetPrice"  class="btn btn-warning" runat="server" Text="Set Base Price" OnClick="btnSetPrice_Click" />
+            </div>
 </html>
     </form>
 </body>
