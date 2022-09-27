@@ -40,7 +40,7 @@ namespace eSport
 
             SqlCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "select * from clients";
+            cmd.CommandText = "select * from player";
             cmd.ExecuteNonQuery();
 
             DataSet dt = new DataSet();

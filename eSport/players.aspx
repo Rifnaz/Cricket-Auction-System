@@ -68,14 +68,14 @@
                 <ItemTemplate>
         <div class="row">
             <div class="">
-                <a href="player-details.aspx?id=<%#Eval("id") %>" >
+                <a href="player-details.aspx?id=<%#Eval("PlayerID") %>" >
                     <div class="">
                         <div class="row text-center">
                             <div class="col">
                                 <div>
                                     <img class="profilepic" src="./assets/virat.jpg" alt="" srcset="">
                                 </div>
-                                <p class="playerName moveTo" style="text-decoration: none; font-size:15px;"><%#Eval("name") %></p>
+                                <p class="playerName moveTo" style="text-decoration: none; font-size:15px;"><%#Eval("FirstName") %> <%#Eval("LastName") %></p>
                             </div>
                         </div>
                     </div>

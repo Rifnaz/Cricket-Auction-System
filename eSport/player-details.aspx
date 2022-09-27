@@ -67,10 +67,10 @@
                 </div>
                 <div class="col" style="text-align:left;">
                     <div class="dis-name">
-                        <%#Eval("name") %>
+                        <%#Eval("FirstName") %> <%#Eval("LastName") %>
                         <div class="row attributes">
-                            <div class="col-12">Right Hand Batman</div>
-                            <div class="col-12">Right Hand Fast</div>
+                            <div class="col-12"><%#Eval("Role") %></div>
+                            <div class="col-12"><%#Eval("ArmStyle") %></div>
                         </div>
                     </div>
                     <table>
@@ -81,12 +81,12 @@
 
                         </tr>
                         <tr>
-                            <td class="result">35</td>
-                            <td class="result">2587</td>
-                            <td class="result">58</td>
+                            <td class="result"><%#Eval("Matches") %></td>
+                            <td class="result"><%#Eval("Runs") %></td>
+                            <td class="result"><%#Eval("Wickets") %></td>
                         </tr>
                     </table>
-                    <div style="color:dimgrey; margin-left:18px" class="result">544512 <span style="font-size:18px;">LKR</span></div>
+                    <div style="color:dimgrey; margin-left:18px" class="result"> <%#Eval("BasePrice") %> <span style="font-size:18px;">LKR</span></div>
                      
                     <input  class="priceInput" placeholder="Rs.0000" type="number">
                     <button class="btn btn-warning">Set Base Price</button>
