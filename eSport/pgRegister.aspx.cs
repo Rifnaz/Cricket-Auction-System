@@ -10,12 +10,14 @@ using System.Data.SqlClient;
 using System.Data.Sql;
 using System.Configuration;
 using System.Diagnostics.Contracts;
+using System.IO;
+using System.Drawing.Imaging;
 
 namespace e_sport_trial.player
 {
     public partial class pgRegister : System.Web.UI.Page
     {
-        SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["mycon"].ToString());
+        SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ToString());
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -31,7 +33,16 @@ namespace e_sport_trial.player
 
         protected void btnRegister_Click(object sender, EventArgs e)
         {
-            // Read from values
+            registerPlayer();
+        }
+
+
+        private void registerPlayer()
+        {
+
+                clear_labels();
+
+            // validation of name and number
             String first = txtFirst.Text;
             String last = txtLast.Text;
             String email = txtEmail.Text;
@@ -41,13 +52,10 @@ namespace e_sport_trial.player
             String wicket = txtWickets.Text;
             String matches = txtmatch.Text;
             String arm = dplArm.Text;
-            String image = txtImage.Text;
             String pass = txtPassword.Text;
             String conpass = txtConpass.Text;
 
-            clear_labels();
 
-            // Validations
             if (first == "")
             {
                 lblError_first.Text = "This field is required !";
@@ -84,10 +92,6 @@ namespace e_sport_trial.player
             {
                 lblError_arm.Text = "This field is required !";
             }
-            if (image == "")
-            {
-                lblError_image.Text = "This field is required !";
-            }
             if (pass == "")
             {
                 lblError_pass.Text = "This field is required !";
@@ -96,23 +100,82 @@ namespace e_sport_trial.player
             {
                 lblError_conpass.Text = "This field is required !";
             }
-            else if (pass == conpass)
-            {
-                //Interact with Table
-                SqlCommand cmd = con.CreateCommand();
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "insert into player(FirstName, LastName, Email, Dob, Role, Run, Wickets, Matches, ArmStyle, Image, BasePrice, Password) values('" + first + "', '" + last + "', '" + email + "', '" + dob + "', '" + role + "', '" + runs + "', '" + wicket + "', '" + matches + "', '" + arm + "', '" + image + "', '" + "Pending..." + "', '" + pass + "' )";
-                cmd.ExecuteNonQuery();
 
-                clear_labels();
-                clear_textboxes();
+            if (pass != conpass)
+            {
+                lblError_conpass.Text = "Password and Confirm Password arent the Same";
             }
+
             else
             {
-                lblError.Text = "Password does not match !";
-                txtPassword.Text = "";
-                txtConpass.Text = "";
-            }
+                try
+                {
+                    if (FileUpload1.HasFile)
+                    {
+                        string str = FileUpload1.FileName;
+                        FileUpload1.PostedFile.SaveAs(Server.MapPath("~/img/players/"+str));
+                        string img = "~/img/players/" + str.ToString();
+         
+              
+
+                        //check if player already exists
+
+
+                        if (con.State == ConnectionState.Open)
+                        {
+                            con.Close();
+                        }
+                        con.Open();
+                        SqlCommand cmd = con.CreateCommand();
+                        cmd.CommandType = CommandType.Text;
+                        cmd.CommandText = "select * from player where Email='" + email + "'";
+
+
+
+                        //error message
+                        if (cmd.ExecuteReader().Read())
+                        {
+                            lblError.Text = "Player with this Email already exists";
+                            con.Close();
+                        }
+
+                        //insert and success message
+                        else
+                        {
+                            if (con.State == ConnectionState.Open)
+                            {
+                                con.Close();
+                            }
+                            con.Open();
+
+                            //insert command
+                        
+                            string query = "insert into player(FirstName, LastName, Email, Dob, Role, Runs, Wickets, Matches, ArmStyle, Image, BasePrice, Password,Status) values('" + first + "', '" + last + "', '" + email + "', '" + dob + "', '" + role + "', '" + runs + "', '" + wicket + "', '" + matches + "', '" + arm + "', '" + img + "', 0, '" + pass + "',0)";
+
+                            SqlCommand cmd1 = con.CreateCommand();
+                            cmd1.CommandType = CommandType.Text;
+                            cmd1.CommandText = query;
+                            cmd1.ExecuteNonQuery();
+
+                            //registered successfully
+                            Response.Write("Alert('Registered Successfully')");
+
+                        }
+                        con.Close();
+                    }
+                    else
+                    {
+                        lblError_image.Text = "This field is required !";
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    lblError.Text = ex.Message;
+
+                }
+                }
+            
         }
 
         private void clear_labels()
@@ -143,9 +206,9 @@ namespace e_sport_trial.player
             txtWickets.Text = "";
             txtmatch.Text = "";
             dplArm.Text = "";
-            txtImage.Text = "";
             txtPassword.Text = "";
             txtConpass.Text = "";
         }
+
     }
 }

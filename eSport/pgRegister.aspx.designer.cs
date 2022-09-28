@@ -186,13 +186,13 @@ namespace e_sport_trial.player
         protected global::System.Web.UI.WebControls.Label lblError_arm;
 
         /// <summary>
-        /// txtImage control.
+        /// FileUpload1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtImage;
+        protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
 
         /// <summary>
         /// lblError_image control.

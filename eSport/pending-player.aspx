@@ -73,7 +73,7 @@
                         <div class="row text-center">
                             <div class="col">
                                 <div>
-                                    <img class="profilepic" src="./assets/virat.jpg" alt="" srcset="">
+                                    <asp:Image class="profilepic" ID="Image1" runat="server" ImageUrl='<%#Eval("Image") %>' />
                                 </div>
                                 <p class="playerName moveTo" style="text-decoration: none; font-size:15px;"><%#Eval("FirstName") %> <%#Eval("LastName") %></p>
                             </div>

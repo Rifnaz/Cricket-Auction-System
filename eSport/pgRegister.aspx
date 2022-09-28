@@ -85,7 +85,7 @@
                 </div>
                 <div class="col">
                     <label for="image">Picture</label><br/>
-                    <asp:TextBox type="file" name="image" id="txtImage" runat="server"/><br />
+                    <asp:FileUpload ID="FileUpload1" runat="server" /><br />
                     <asp:Label ID="lblError_image" CssClass="errors" runat="server"/>
                 </div>
             </div>
@@ -112,7 +112,7 @@
                 <br/><br/>
             <div class="link">
                 <label >Already have an account</label><br/>
-                <a href="pgLogin.aspx">Login here</a>
+                <a href="pgLogin.aspx">Update here</a>
             </div>
         </form>
     </div>
