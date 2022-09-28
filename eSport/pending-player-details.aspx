@@ -37,6 +37,10 @@
         margin-top: -40px;
         margin-left:-30px;
     }
+    .heroBgR{
+        width:535px;
+         margin-left: -35px;
+    }
 </style>
 
 
@@ -65,9 +69,8 @@
                 </div>
               </nav>
                 <div class="col heroPic">
-           
                     <div class="FadeAway">
-                        <img id="hero-img" src="./assets/virat.jpg" alt="" srcset="">
+                       <asp:Image class="heroBgR" ID="Image1" runat="server" ImageUrl='<%#Eval("Image") %>' />
                     </div>
                 </div>
                 <div class="col" style="text-align:left;">

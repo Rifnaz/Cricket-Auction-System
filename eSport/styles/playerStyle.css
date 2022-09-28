@@ -141,10 +141,6 @@
     margin-left: 25px;
 }
 
-#hero-img {
-    width: 535px;
-    margin-left: -15px;
-}
 
 .FadeAway img {
     -webkit-mask-image: linear-gradient(to right, black, transparent);

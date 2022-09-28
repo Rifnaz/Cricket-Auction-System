@@ -43,6 +43,7 @@ namespace eSport
             cmd.CommandText = "select * from player where Status=0";
             cmd.ExecuteNonQuery();
 
+
             DataSet dt = new DataSet();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             da.Fill(dt);
@@ -50,6 +51,8 @@ namespace eSport
             dtl_player.DataBind();
 
         }
+
+  
 
 
         protected void dtl_player_SelectedIndexChanged(object sender, EventArgs e)
