@@ -64,7 +64,7 @@
         <div class="title">
             <span class="">PLAYERS</span>
         </div>
-            <asp:DataList ID="dtl_player" runat="server" RepeatColumns="4" CellPadding="0" CellSpacing="0" OnSelectedIndexChanged="dtl_player_SelectedIndexChanged"> 
+            <asp:DataList ID="dtl_player" runat="server" RepeatColumns="4" CellPadding="0"  OnSelectedIndexChanged="dtl_player_SelectedIndexChanged"> 
                 <ItemTemplate>
         <div class="row">
             <div class="">
