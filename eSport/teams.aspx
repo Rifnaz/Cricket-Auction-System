@@ -32,7 +32,9 @@
     <div class="banner">
         <img class="team-bg" src="./assets/ipl-banner.jpg" alt="">
     </div>
-    <div class="container team-content">
+     <div class="container team-content">
+
+
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
               <a class="navbar-brand text-light" href="#">E-SPORT PVT LTD</a>
@@ -42,7 +44,7 @@
               <div class="d-flex" id="navbarTogglerDemo02">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                   <li class="nav-item">
-                    <a class="nav-link active text-light" aria-current="page" href="#">Home</a>
+                    <a class="nav-link active text-light" aria-current="page" href="home.aspx">Home</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link text-light" href="#">Login </a>
@@ -54,34 +56,26 @@
         <div class="title">
             <span class="">TEAMS</span>
         </div>
+            <asp:DataList ID="dtl_player" runat="server" RepeatColumns="4" CellPadding="0" > 
+                <ItemTemplate>
         <div class="row">
-            <div class="col-2 player">
-                <div class="container player-cont">
-                    <div class="row text-center">
-                        <div class="col">
-                            <div>
-                                <img class="profilepic" src="./assets/mi.png" alt="" srcset="">
+            <div class="">
+                <a href="team-details.aspx?id=<%#Eval("TeamID") %>" >
+                    <div class="">
+                        <div class="row text-center">
+                            <div class="col">
+                                <div>
+                                    <asp:Image class="profilepic" ID="Image1" runat="server" ImageUrl='<%#Eval("Logo") %>' />
+                                </div>
+                                <p class="playerName moveTo" style="text-decoration: none; font-size:15px;"><%#Eval("Name") %> </p>
                             </div>
-                            <p class="playerName">Name</p>
                         </div>
-                        
                     </div>
-              </div>
-            </div> 
-            <div class="col-2 player">
-                <div class="container player-cont">
-                    <div class="row text-center">
-                        <div class="col">
-                            <div>
-                                <img class="profilepic" src="./assets/rcb.png" alt="" srcset="">
-                            </div>
-                            <p class="playerName">Name</p>
-                        </div>
-                        
-                    </div>
-              </div>
-            </div> 
+                </a>
+            </div>
         </div>
+                </ItemTemplate>
+            </asp:DataList>
     </div>
 </body>
 </html>

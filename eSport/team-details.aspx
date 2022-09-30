@@ -26,13 +26,17 @@
         .team-name{
             display: block;
         }
+        .bal {
+            font-size: 55px;
+            color: white;
+        }
     </style>
 </head>
 
 <body class="blur">
     
     <div class="banner">
-        <img class="team-bg" src="./assets/rcb.png" alt="">
+        <asp:Image ID="teamBanner" class="team-bg" ImageUrl="./assets/rcb.png" runat="server" />
     </div>
     
     <div class="container-fluid team-content">
@@ -56,7 +60,7 @@
                 </div>
               </nav>
         <div class="col currbal">
-                <span class="balance team-name">RCB</span>
+            <asp:Label class="bal team-name" ID="lb_teamName" runat="server" Text="Label"></asp:Label>
                 CURRENT BALANCE
                 <p class="balance">3,50,000 <span class="result">LKR</span></p>
         </div>
@@ -79,51 +83,6 @@
                     <th scope="row">2</th>
                     <td>ABD</td>
                     <td>50,000 LKR</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>Maxwell</td>
-                    <td>75,000 LKR</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">4</th>
-                    <td>Maxwell</td>
-                    <td>75,000 LKR</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">5</th>
-                    <td>Maxwell</td>
-                    <td>75,000 LKR</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">6</th>
-                    <td>Maxwell</td>
-                    <td>75,000 LKR</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">7</th>
-                    <td>Maxwell</td>
-                    <td>75,000 LKR</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">8</th>
-                    <td>Maxwell</td>
-                    <td>75,000 LKR</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">9</th>
-                    <td>Maxwell</td>
-                    <td>75,000 LKR</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">10</th>
-                    <td>Maxwell</td>
-                    <td>75,000 LKR</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">11</th>
-                    <td>Maxwell</td>
-                    <td>75,000 LKR</td>
                   </tr>
                 </tbody>
               </table>

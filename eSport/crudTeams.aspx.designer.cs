@@ -24,6 +24,15 @@ namespace eSport
         protected global::System.Web.UI.WebControls.TextBox txtTeamName;
 
         /// <summary>
+        /// lb_teamID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lb_teamID;
+
+        /// <summary>
         /// txtAmbassador control.
         /// </summary>
         /// <remarks>
@@ -78,13 +87,13 @@ namespace eSport
         protected global::System.Web.UI.WebControls.Button btnCreate;
 
         /// <summary>
-        /// btnCancel control.
+        /// btnEdit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCancel;
+        protected global::System.Web.UI.WebControls.Button btnEdit;
 
         /// <summary>
         /// dl_teams control.

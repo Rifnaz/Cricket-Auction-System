@@ -18,7 +18,8 @@ namespace eSport
     public partial class crudTeams : System.Web.UI.Page
     {
         SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ToString());
-
+        string ownerName = "";
+        string trophyName = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             // Check the Connection Status & close/Open it
@@ -112,8 +113,9 @@ namespace eSport
                             SqlDataReader DR1 = Com.ExecuteReader();
                             if (DR1.Read())
                             {
-                                string owner = DR1.GetValue(0).ToString();
-                                ownerID = int.Parse(owner);
+                                string trophy = DR1.GetValue(0).ToString();
+                                trophyID = int.Parse(trophy);
+                               
                             }
 
                             if (con.State == ConnectionState.Open)
@@ -127,8 +129,8 @@ namespace eSport
                             SqlDataReader DR2 = Com1.ExecuteReader();
                             if (DR2.Read())
                             {
-                                string trophy = DR2.GetValue(0).ToString();
-                                trophyID = int.Parse(trophy);
+                                string owner = DR2.GetValue(0).ToString();
+                                ownerID = int.Parse(owner);
                             }
 
 
@@ -191,9 +193,9 @@ namespace eSport
 
         private void getTrophy()
         {
-
-                // Fill Items to Loadid select combo
-                DataTable dt = new DataTable();
+            dplTrophy.Items.Clear();
+            // Fill Items to Loadid select combo
+            DataTable dt = new DataTable();
                 SqlDataAdapter da = new SqlDataAdapter("select Name from trophy", con);
                 da.Fill(dt);
 
@@ -206,7 +208,7 @@ namespace eSport
 
         private void getOwner()
         {
-
+            dplOwner.Items.Clear();
             //fill combo box
 
             // Fill Items to Loadid select combo
@@ -245,21 +247,13 @@ namespace eSport
 
         }
 
-        protected void btnCancel_Click(object sender, EventArgs e)
-        {
 
-        }
 
-        protected void btn_delete_Click(object sender, EventArgs e)
-        {
-            
-        }
         protected void btnDelete_Click(object sender, EventArgs e)
         {
             string TeamID = ((Button)sender).CommandArgument.ToString();
             int id = int.Parse(TeamID);
 
-            lblError.Text = id.ToString();
 
             if (con.State == ConnectionState.Open)
             {
@@ -274,6 +268,134 @@ namespace eSport
             cmd.ExecuteNonQuery();
 
             loadTeam();
+        }
+
+        protected void btnUpdate_Click(object sender, EventArgs e)
+        {
+            // edit button function 
+            string TeamID = ((Button)sender).CommandArgument.ToString();
+            int id = int.Parse(TeamID);
+
+            if (con.State == ConnectionState.Open)
+            {
+                con.Close();
+            }
+            con.Open();
+
+            SqlCommand Com = new SqlCommand("select * from team where TeamID='" + id + "'", con);
+            SqlDataReader DR1 = Com.ExecuteReader();
+            if (DR1.Read())
+            {
+                lb_teamID.Text= DR1.GetValue(0).ToString();
+                txtTeamName.Text = DR1.GetValue(4).ToString();
+                txtAmbassador.Text = DR1.GetValue(5).ToString();
+
+            }
+        }
+
+        protected void btnEdit_Click(object sender, EventArgs e)
+        {
+            //update button function
+
+            // validation of name and number
+            String teamName = txtTeamName.Text;
+            String ambassador = txtAmbassador.Text;
+            String Owner = dplOwner.SelectedValue;
+            String Trophy = dplTrophy.SelectedValue;
+
+
+            if (teamName == "")
+            {
+                lblError.Text = "All field is required !";
+            }
+            if (ambassador == "")
+            {
+                lblError.Text = "All field is required !";
+            }
+            if (Owner == "")
+            {
+                lblError.Text = "All field is required !";
+            }
+            if (Trophy == "")
+            {
+                lblError.Text = "All field is required !";
+            }
+            if (!FileUpload1.HasFiles)
+            {
+                lblError.Text = "All field is required !";
+            }
+
+            else
+            {
+                try
+                {
+                    int ownerID = 0;
+                    int trophyID = 0;
+                    int id = int.Parse(lb_teamID.Text);
+
+                    string str = FileUpload1.FileName;
+                    FileUpload1.PostedFile.SaveAs(Server.MapPath("~/img/teamLogo/" + str));
+                    string img = "~/img/teamLogo/" + str.ToString();
+
+                    if (con.State == ConnectionState.Open)
+                    {
+                        con.Close();
+                    }
+                    con.Open();
+
+
+                    SqlCommand Com = new SqlCommand("select TrophyID from trophy where Name='" + Trophy + "'", con);
+                    SqlDataReader DR1 = Com.ExecuteReader();
+                    if (DR1.Read())
+                    {
+                        string trophy = DR1.GetValue(0).ToString();
+                        trophyID = int.Parse(trophy);
+
+                    }
+
+                    if (con.State == ConnectionState.Open)
+                    {
+                        con.Close();
+                    }
+                    con.Open();
+
+                    DR1.Close();
+
+                    if (con.State == ConnectionState.Open)
+                    {
+                        con.Close();
+                    }
+                    con.Open();
+
+                    SqlCommand Com1 = new SqlCommand("select OwnerID from owner where Name='" + Owner + "'", con);
+                    SqlDataReader DR2 = Com1.ExecuteReader();
+                    if (DR2.Read())
+                    {
+                        string owner = DR2.GetValue(0).ToString();
+                        ownerID = int.Parse(owner);
+                    }
+                    DR2.Close();
+
+
+                    if (con.State == ConnectionState.Open)
+                    {
+                        con.Close();
+                    }
+                    con.Open();
+
+                    SqlCommand cmd = con.CreateCommand();
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = "update team set OwnerID = '" + ownerID + "' , TrophyID = '" + trophyID + "', Logo = '" + img + "', Name = '" + teamName + "', Ambassador = '" + ambassador + "' where teamID ='" + id + "' ";
+                    cmd.ExecuteNonQuery();
+
+                    loadTeam();
+                }
+                catch(Exception ex)
+                {
+                    lblError.Text = ex.Message;
+                }
+            }
+        
         }
     }
 }

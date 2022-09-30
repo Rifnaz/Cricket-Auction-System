@@ -10,6 +10,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"/>
     <link rel="stylesheet" href="../css/trophy.css"/>
     <title>E-Sports Teams</title>
+
+    <style>
+        .hide{
+            display:none;
+        }
+    </style>
 </head>
 <body class="body">
     <div class="container">
@@ -21,6 +27,7 @@
                     <br/>
                     <label for="troname">Team Name</label><br/>
                     <asp:TextBox id="txtTeamName" type="text" name="txtTeamName" runat="server"/>
+                    <asp:Label class="hide" ID="lb_teamID" runat="server"/>
                     <br/>
                      <label for="troname">Team Ambassador</label><br/>
                     <asp:TextBox id="txtAmbassador" type="text" name="txtAmbassador" runat="server"/>
@@ -37,7 +44,7 @@
                     <asp:Label ID="lblError" runat="server"/>
                     <asp:button id="btnCreate" Text="CREATE" runat="server" OnClick="btnCreate_Click"/>
                     <br/>
-                    <asp:button id="btnCancel" runat="server" text="CANCEL" OnClick="btnCancel_Click"/>
+                    <asp:button id="btnEdit" runat="server" text="UPDATE" OnClick="btnEdit_Click"/>
                     <br/><br/>
             </div>
             <div class="col">
@@ -53,7 +60,7 @@
 
                         </tr>
                     </thead>
-                    <asp:DataList ID="dl_teams" runat="server" OnItemCommand="editTeam">
+                    <asp:DataList ID="dl_teams" runat="server">
                         <ItemTemplate>
                             <tbody>
                         <tr>
@@ -66,9 +73,8 @@
                             <td><%#Eval("OwnerID") %></td>
                             <td><%#Eval("Ambassador") %></td>
                             <td><%#Eval("TrophyID") %></td>
-                            <td><button class="btnView">View</button></td>
                             <td>
-                                <button class="btnUpdate">Edit</button>
+                                <asp:Button ID="btnUpdate" class="btnUpdate" runat="server" Text="EDIT"  CommandArgument='<%#Eval("TeamID") %>' OnClick="btnUpdate_Click"/>
                                 <asp:Button ID="btnDelete"  class="btnDelete" runat="server" Text="Delete"  CommandArgument='<%#Eval("TeamID") %>' OnClick="btnDelete_Click"/>
                             </td>
                         </tr>
