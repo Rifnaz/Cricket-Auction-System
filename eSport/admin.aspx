@@ -35,6 +35,21 @@
             color: black;
             text-decoration: none;
         }
+        a{
+            color:white;
+        }
+        a:hover{
+            color:white;
+            text-decoration:none;
+        }
+        .count-title{
+            color:black;
+
+        }
+        .count-title:hover{
+             color:black;
+            text-decoration:none;
+        }
     </style>
 
 </head>
@@ -45,27 +60,27 @@
                 <div class="left-div-top">
                     <a class="moveTo" href="./home.html">
                         <img class="obj-fit" src="./assets/trophy.jpg" alt="">
-                        <div class="odj-text">TROPHY</div>
+                        <div class="odj-text"> <a class="odj-text" href="pgTrophy.aspx">TROPHY</a> </div>
                     </a>
                 </div>
                 <div class="left-div-bottom">
                     <div class="count-div-top row">
                         <div class="col count-of-div">
-                            <span class="counts" style="color:rgb(118, 189, 118);">152</span>
+                            <asp:Label class="counts" style="color:rgb(118, 189, 118);" ID="lb_playerCount" runat="server" Text="Label"></asp:Label>
                             <span class="count-title">No.Player</span>
                         </div>
                         <div class="col count-of-div">
-                            <span class="counts" style="color:rgb(241, 105, 105);">12</span>
+                            <asp:Label ID="lb_teamCount" class="counts" style="color:rgb(241, 105, 105);" runat="server" Text="Label"></asp:Label>
                             <span class="count-title">No.Team</span>
                         </div>
                     </div>
                     <div class="count-div-bottom row">
                         <div class="col count-of-div">
-                            <span class="counts" style="color:rgb(102, 119, 194);">8</span>
+                            <asp:Label ID="lb_ownerCount" class="counts" style="color:rgb(102, 119, 194);" runat="server" Text="Label"></asp:Label>
                             <span class="count-title">No.Owners</span>
                         </div>
                         <div class="col count-of-div">
-                            <span class="counts" style="color:rgb(224, 183, 94);">2</span>
+                            <asp:Label ID="lb_trophtCount" class="counts" style="color:rgb(224, 183, 94);" runat="server" Text="Label"></asp:Label>
                             <span class="count-title">No.Trophy</span>
                         </div>
                     </div>
@@ -85,13 +100,13 @@
                                 <a class="nav-link active text-dark" aria-current="page" href="#">Home</a>
                               </li>
                               <li class="nav-item">
-                                <a class="nav-link text-dark" href="#">Auction</a>
+                                <a class="nav-link text-dark" href="pgAuction.aspx">Auction</a>
                               </li>
                               <li class="nav-item">
                                 <a class="nav-link text-dark" href="players.aspx">Players</a>
                               </li>
                               <li class="nav-item">
-                                <a class="nav-link text-dark" href="#">Logout</a>
+                                <a class="nav-link text-dark" href="home">Logout</a>
                               </li>
                             </ul>
                           </div>
@@ -99,11 +114,12 @@
                       </nav>
                 </div>
                 <div class="second-row-right-div">
-                    <a  class="moveToBlack" href="./players.html">
+                    <a  class="moveToBlack" href="">
                     <div class="row">
                         <div class="col second-row-right-div-one">
-                        <a href="pending-player.aspx">
-                            Pending Players <span class="counts" style="color:rgb(118, 189, 118);">10</span> <br>
+                        <a href="pending-player.aspx" class="count-title">
+
+                            Pending Players <asp:Label class="counts" style="color:rgb(118, 189, 118);" ID="lb_pendingPlayerCount" runat="server" Text="0"></asp:Label> <br>
                             <span class="count-title">
                                 Accept or Decline All Your Pending Players Here
                             </span>
@@ -118,23 +134,22 @@
                 <div class="third-row-right-div">
                     <div class="count-div-top row">
                         <div class="col options">
-                            <a class="moveTo"  href="players.aspx">               
+                            <a class="moveTo"  href="pgAuction.aspx">               
                             <img class="obj-fit" src="./assets/auction.jpg" alt="">
                             <div class="odj-text">AUCTION</div>
                         </a>
                         </div>
                         <div class="col options">
-                            <a class="moveTo"  href="./player.html">                   
+                            <a class="moveTo"  href="">                   
                             <img class="obj-fit" src="./assets/owners.jpg" alt="">
                             <div class="odj-text">OWNERES</div>
 
                         </a>
                         </div>
                         <div class="col options">
-                            <a class="moveTo"  href="./player.html">                   
+                            <a class="moveTo"  href="teams.aspx">                   
                             <img class="obj-fit" src="./assets/teams.jpg" alt="">
                             <div class="odj-text">TEAMS</div>
-
                         </a>
                         </div>
                     </div>

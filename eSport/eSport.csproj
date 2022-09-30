@@ -72,6 +72,7 @@
     <Content Include="App_Data\dbEsport_log.ldf">
       <DependentUpon>dbEsport.mdf</DependentUpon>
     </Content>
+    <Content Include="crudOwner.aspx" />
     <Content Include="crudTeams.aspx" />
     <Content Include="css\auction.css" />
     <Content Include="css\login.css" />
@@ -106,6 +107,13 @@
     </Compile>
     <Compile Include="admin.aspx.designer.cs">
       <DependentUpon>admin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="crudOwner.aspx.cs">
+      <DependentUpon>crudOwner.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="crudOwner.aspx.designer.cs">
+      <DependentUpon>crudOwner.aspx</DependentUpon>
     </Compile>
     <Compile Include="crudTeams.aspx.cs">
       <DependentUpon>crudTeams.aspx</DependentUpon>

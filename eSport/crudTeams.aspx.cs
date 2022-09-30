@@ -385,7 +385,7 @@ namespace eSport
 
                     SqlCommand cmd = con.CreateCommand();
                     cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = "update team set OwnerID = '" + ownerID + "' , TrophyID = '" + trophyID + "', Logo = '" + img + "', Name = '" + teamName + "', Ambassador = '" + ambassador + "' where teamID ='" + id + "' ";
+                    cmd.CommandText = "update team set OwnerID = '" + ownerID + "' , TrophyID = '" + trophyID + "', Logo = '" + img + "', Name = '" + teamName + "', Ambassador = '" + ambassador + "' where TeamID ='" + id + "' ";
                     cmd.ExecuteNonQuery();
 
                     loadTeam();
