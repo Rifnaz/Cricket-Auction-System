@@ -140,7 +140,7 @@
                         </a>
                         </div>
                         <div class="col options">
-                            <a class="moveTo"  href="">                   
+                            <a class="moveTo"  href="crudOwner.aspx">                   
                             <img class="obj-fit" src="./assets/owners.jpg" alt="">
                             <div class="odj-text">OWNERES</div>
 
