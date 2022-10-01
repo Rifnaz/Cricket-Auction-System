@@ -68,10 +68,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="admin.aspx" />
-    <Content Include="App_Data\dbEsport.mdf" />
-    <Content Include="App_Data\dbEsport_log.ldf">
-      <DependentUpon>dbEsport.mdf</DependentUpon>
-    </Content>
     <Content Include="crudOwner.aspx" />
     <Content Include="crudTeams.aspx" />
     <Content Include="css\auction.css" />
