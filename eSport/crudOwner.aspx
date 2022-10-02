@@ -39,6 +39,7 @@
                     <asp:button id="btnCreate" Text="CREATE" runat="server" OnClick="btnCreate_Click" />
                     <br/>
                     <asp:button id="btnEdit" runat="server" text="UPDATE" OnClick="btnEdit_Click"/>
+                    <asp:button id="jj" runat="server" text="UPDATE" OnClick="jj_Click" />
                     <br/><br/>
             </div>
             <div class="col">
