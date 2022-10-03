@@ -21,6 +21,16 @@
 
     <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
+    <style>
+         a{
+            color:white;
+        }
+        a:hover{
+            color:white;
+            text-decoration:none;
+        }
+    </style>
+
 
 </head>
   <body class="bg">
@@ -37,16 +47,16 @@
                           <div class="d-flex" id="navbarTogglerDemo02">
                             <ul class="navbar-nav navBarList me-auto mb-2 mb-lg-0">
                               <li class="nav-item ">
-                                <a class="nav-link active text-dark" aria-current="page" href="#">Home</a>
+                                <a class="nav-link active text-dark" aria-current="page" href="home.aspx">Home</a>
                               </li>
                               <li class="nav-item">
-                                <a class="nav-link text-dark" href="#">Auction</a>
+                                <a class="nav-link text-dark" href="pgAuction.aspx">Auction</a>
                               </li>
                               <li class="nav-item">
-                                <a class="nav-link text-dark" href="./players.html">Players</a>
+                                <a class="nav-link text-dark" href="players.aspx">Players</a>
                               </li>
                               <li class="nav-item">
-                                <a class="nav-link text-dark" href="./home.html">Logout</a>
+                                <a class="nav-link text-dark" href="home.aspx">Logout</a>
                               </li>
                             </ul>
                           </div>
@@ -67,22 +77,33 @@
                     </div>
                 </div>
                 <div style="margin-bottom: 55px;" class="third-row-right-div">
+                    <asp:DataList ID="dtl_player" runat="server">
+                        <ItemTemplate>
                     <div class="count-div-top row">
                         <div class="col options">
-                            <img class="obj-fit" src="./assets/crick.jpg" alt="">
-                            <div class="odj-text">ABOUT</div>
+                                    <a href="player-details.aspx?id=<%#Eval("PlayerID") %>">
+                                    <img class="obj-fit" src="./assets/crick.jpg" alt="">
+                                    <div class="odj-text">ABOUT</div>
+                                    </a>
+                               
                         </div>
                         <div class="col options">
-                            <img class="obj-fit" src="./assets/trophy.jpg" alt="">
-                            <div class="odj-text">TROPHY</div>
+                            <a>
+                            <img class="obj-fit" src="./assets/auction.jpg" alt="">
+                            <div class="odj-text">Auction</div>
+                            </a>
 
                         </div>
                         <div class="col options">
+                            <a href="teams.aspx" >
                             <img class="obj-fit" src="./assets/teams.jpg" alt="">
                             <div class="odj-text">TEAMS</div>
+                            </a>
 
                         </div>
                     </div>
+                 </ItemTemplate>
+               </asp:DataList>
                 </div>
             </div>
         </div>

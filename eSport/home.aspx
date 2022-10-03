@@ -46,9 +46,9 @@
                 <asp:DropDownList class="nav-item dropdownL" ID="DropDownList1" runat="server" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" AutoPostBack="true">
                     
                     <asp:ListItem Selected="true" class="dropdown-item" Text="Login">Login</asp:ListItem>
-                    <asp:ListItem class="dropdown-item" Value="login.aspx?id=admin">Admin</asp:ListItem>
-                    <asp:ListItem class="dropdown-item" Value="login.aspx?id=player">Player</asp:ListItem>
-                    <asp:ListItem class="dropdown-item" Value="login.aspx?id=owner">Owner</asp:ListItem>
+                    <asp:ListItem class="dropdown-item" Value="pgLogin_admin.aspx?id=admin">Admin</asp:ListItem>
+                    <asp:ListItem class="dropdown-item" Value="pgLogin_admin.aspx?id=player">Player</asp:ListItem>
+                    <asp:ListItem class="dropdown-item" Value="pgLogin_admin.aspx?id=owner">Owner</asp:ListItem>
                   </asp:DropDownList>
                     </a>
               </li>

@@ -77,7 +77,6 @@
     <Content Include="home.aspx" />
     <Content Include="img\crick.jpg" />
     <Content Include="img\dhoni.jpg" />
-    <Content Include="login.aspx" />
     <Content Include="pending-player-details.aspx" />
     <Content Include="pending-player.aspx" />
     <Content Include="pgAuction.aspx" />
@@ -124,13 +123,6 @@
     </Compile>
     <Compile Include="home.aspx.designer.cs">
       <DependentUpon>home.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="login.aspx.cs">
-      <DependentUpon>login.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="login.aspx.designer.cs">
-      <DependentUpon>login.aspx</DependentUpon>
     </Compile>
     <Compile Include="pending-player-details.aspx.cs">
       <DependentUpon>pending-player-details.aspx</DependentUpon>

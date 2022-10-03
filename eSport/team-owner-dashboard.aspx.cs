@@ -11,7 +11,13 @@ namespace eSport
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            getEmail();
+        }
 
+        private void getEmail()
+        {
+            string email = Session["email"].ToString();
+            Session.Remove("email");
         }
     }
 }
