@@ -108,7 +108,7 @@ tbody th {
     margin: auto;
 }
 
-h5 {
+.h5 {
     color: #008080;
     font-weight: bold;
     margin-top: 10px;
@@ -186,7 +186,7 @@ h5 {
     opacity: 1;  
 }
 
-#lblError {
+#lblError, #lblTError {
     color: red;
     font-size: 11px;
 }

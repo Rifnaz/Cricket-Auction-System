@@ -60,15 +60,6 @@ namespace eSport
         protected global::System.Web.UI.WebControls.DropDownList dplOwner;
 
         /// <summary>
-        /// dplTrophy control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dplTrophy;
-
-        /// <summary>
         /// lblError control.
         /// </summary>
         /// <remarks>

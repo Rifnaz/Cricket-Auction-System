@@ -38,9 +38,6 @@
                     <label for="team">Owner</label><br/>
                     <asp:DropDownList id="dplOwner" runat="server"  Enabled="true"  AutoPostBack="false"/>
                     <br/>
-                     <label for="team">Trophy</label><br/>
-                    <asp:DropDownList id="dplTrophy" runat="server"  Enabled="true"  AutoPostBack="false"/>
-                    <br/>
                     <asp:Label ID="lblError" runat="server"/>
                     <asp:button id="btnCreate" Text="CREATE" runat="server" OnClick="btnCreate_Click"/>
                     <br/>

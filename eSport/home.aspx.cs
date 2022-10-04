@@ -18,5 +18,10 @@ namespace eSport
         {
             Response.Redirect(DropDownList1.SelectedValue, true);
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("pgRegister.aspx");
+        }
     }
 }

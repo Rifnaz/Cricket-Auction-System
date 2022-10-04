@@ -31,7 +31,6 @@ namespace eSport
 
             clear_labels();
             loadTeam();
-            getTrophy();
             getOwner();
         }
 
@@ -44,8 +43,6 @@ namespace eSport
             String teamName = txtTeamName.Text;
             String ambassador = txtAmbassador.Text;
             String Owner = dplOwner.SelectedValue;
-            String Trophy = dplTrophy.SelectedValue;
-
             
             if (teamName == "")
             {
@@ -56,10 +53,6 @@ namespace eSport
                 lblError.Text = "All field is required !";
             }
             if (Owner == "")
-            {
-                lblError.Text = "All field is required !";
-            }
-            if (Trophy == "")
             {
                 lblError.Text = "All field is required !";
             }
@@ -102,29 +95,14 @@ namespace eSport
                         else
                         {
                             int ownerID=0;
-                            int trophyID=0;
-
-                            if (con.State == ConnectionState.Open)
-                            {
-                                con.Close();
-                            }
-                            con.Open();
-                            SqlCommand Com = new SqlCommand("select TrophyID from trophy where Name='" + Trophy + "'", con);
-                            SqlDataReader DR1 = Com.ExecuteReader();
-                            if (DR1.Read())
-                            {
-                                string trophy = DR1.GetValue(0).ToString();
-                                trophyID = int.Parse(trophy);
-                               
-                            }
-
+                            
                             if (con.State == ConnectionState.Open)
                             {
                                 con.Close();
                             }
                             con.Open();
 
-                            DR1.Close();
+                           
                             SqlCommand Com1 = new SqlCommand("select OwnerID from owner where Name='" + Owner + "'", con);
                             SqlDataReader DR2 = Com1.ExecuteReader();
                             if (DR2.Read())
@@ -143,7 +121,7 @@ namespace eSport
 
                             //insert command
 
-                            string query = "insert into team(OwnerID, TrophyID, Logo, Name, Ambassador) values('" + ownerID + "', '" + trophyID + "', '" + img + "', '" + teamName + "', '" + ambassador + "')";
+                            string query = "insert into team(OwnerID, TrophyID, Logo, Name, Ambassador) values('" + ownerID + "', null, '" + img + "', '" + teamName + "', '" + ambassador + "')";
 
                             SqlCommand cmd1 = con.CreateCommand();
                             cmd1.CommandType = CommandType.Text;
@@ -183,7 +161,6 @@ namespace eSport
             txtTeamName.Text = "";
             txtAmbassador.Text = "";
             dplOwner.SelectedValue = "";
-            dplTrophy.SelectedValue = "";
         }
 
         protected void btnCreate_Click(object sender, EventArgs e)
@@ -191,20 +168,6 @@ namespace eSport
             addTeam();
         }
 
-        private void getTrophy()
-        {
-            dplTrophy.Items.Clear();
-            // Fill Items to Loadid select combo
-            DataTable dt = new DataTable();
-                SqlDataAdapter da = new SqlDataAdapter("select Name from trophy", con);
-                da.Fill(dt);
-
-                foreach (DataRow dr in dt.Rows)
-                {
-                    dplTrophy.Items.Add(dr["Name"].ToString());
-                }
-            
-        }
 
         private void getOwner()
         {
@@ -301,8 +264,6 @@ namespace eSport
             String teamName = txtTeamName.Text;
             String ambassador = txtAmbassador.Text;
             String Owner = dplOwner.SelectedValue;
-            String Trophy = dplTrophy.SelectedValue;
-
 
             if (teamName == "")
             {
@@ -316,10 +277,7 @@ namespace eSport
             {
                 lblError.Text = "All field is required !";
             }
-            if (Trophy == "")
-            {
-                lblError.Text = "All field is required !";
-            }
+  
             if (!FileUpload1.HasFiles)
             {
                 lblError.Text = "All field is required !";
@@ -330,36 +288,12 @@ namespace eSport
                 try
                 {
                     int ownerID = 0;
-                    int trophyID = 0;
                     int id = int.Parse(lb_teamID.Text);
 
                     string str = FileUpload1.FileName;
                     FileUpload1.PostedFile.SaveAs(Server.MapPath("~/img/teamLogo/" + str));
                     string img = "~/img/teamLogo/" + str.ToString();
 
-                    if (con.State == ConnectionState.Open)
-                    {
-                        con.Close();
-                    }
-                    con.Open();
-
-
-                    SqlCommand Com = new SqlCommand("select TrophyID from trophy where Name='" + Trophy + "'", con);
-                    SqlDataReader DR1 = Com.ExecuteReader();
-                    if (DR1.Read())
-                    {
-                        string trophy = DR1.GetValue(0).ToString();
-                        trophyID = int.Parse(trophy);
-
-                    }
-
-                    if (con.State == ConnectionState.Open)
-                    {
-                        con.Close();
-                    }
-                    con.Open();
-
-                    DR1.Close();
 
                     if (con.State == ConnectionState.Open)
                     {
@@ -385,7 +319,7 @@ namespace eSport
 
                     SqlCommand cmd = con.CreateCommand();
                     cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = "update team set OwnerID = '" + ownerID + "' , TrophyID = '" + trophyID + "', Logo = '" + img + "', Name = '" + teamName + "', Ambassador = '" + ambassador + "' where TeamID ='" + id + "' ";
+                    cmd.CommandText = "update team set OwnerID = '" + ownerID + "' , TrophyID = null, Logo = '" + img + "', Name = '" + teamName + "', Ambassador = '" + ambassador + "' where TeamID ='" + id + "' ";
                     cmd.ExecuteNonQuery();
 
                     loadTeam();

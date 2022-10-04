@@ -62,7 +62,7 @@
               play with <br>
                  greate matches.</h1>
             <p>Tournament of cricket encounters.</p>
-            <asp:Button ID="Button1" class="btn2" runat="server" Text="Register" />
+            <asp:Button ID="Button1" class="btn2" runat="server" Text="Register" OnClick="Button1_Click" />
         </div>
       
       </div>
